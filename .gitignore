@@ -33,6 +33,8 @@ sample/build
 .gradle
 gradlew
 gradlew.bat
+library/gradle
+sample/gradle
 
 # Android Studio
 *.iml
