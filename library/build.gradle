@@ -6,16 +6,15 @@ buildscript {
         classpath 'com.android.tools.build:gradle:0.5.+'
     }
 }
+
 apply plugin: 'android-library'
 
-
 repositories {
-	mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-	compile 'com.android.support:support-v4:18.0.0'
+    compile 'com.android.support:support-v4:18.0.+'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
 }
 
@@ -27,15 +26,11 @@ android {
         minSdkVersion 7
         targetSdkVersion 17
     }
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
             res.srcDirs = ['res']
         }
-
-        debug.setRoot('build-types/debug')
-        release.setRoot('build-types/release')
     }
 }
