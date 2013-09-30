@@ -37,7 +37,8 @@ public class HomeActivity extends SherlockListActivity {
             new ActivityInfo(NoParallaxActivity.class, R.string.activity_title_no_parallax),
             new ActivityInfo(NavigationDrawerActivity.class, R.string.activity_title_navigation),
             new ActivityInfo(HeaderOverlayActivity.class, R.string.activity_title_header_overlay),
-            new ActivityInfo(DatasetChangeActivity.class, R.string.activity_title_dataset_change));
+            new ActivityInfo(DatasetChangeActivity.class, R.string.activity_title_dataset_change),
+            new ActivityInfo(ScrollViewChangeActivity.class, R.string.activity_title_scrollview_change));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

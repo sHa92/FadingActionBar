@@ -62,8 +62,6 @@ public class FadingActionBarHelper {
     private boolean mFirstGlobalLayoutPerformed;
     private FrameLayout mMarginView;
     private View mListViewBackgroundView;
-    private int mHeaderContainerTop = 0;
-    private int mListViewBackgroundTop = 0;
 
 
     public FadingActionBarHelper actionBarBackground(int drawableResId) {
@@ -174,8 +172,6 @@ public class FadingActionBarHelper {
                 if (!mFirstGlobalLayoutPerformed && headerHeight != 0) {
                     updateHeaderHeight(headerHeight);
                     mFirstGlobalLayoutPerformed = true;
-
-                    mListViewBackgroundTop = headerHeight;
                 }
             }
         });
@@ -320,20 +316,11 @@ public class FadingActionBarHelper {
         float damping = mUseParallax ? 0.5f : 1.0f;
         int dampedScroll = (int) (scrollPosition * damping);
         int offset = mLastDampedScroll - dampedScroll;
-        //if offset didn't change and header container view top is different than last top position
-        // then we should reset offset to last top position otherwise just use offset
-        int headerTop = mHeaderContainer.getTop();
-        mHeaderContainer.offsetTopAndBottom(offset == 0 && mHeaderContainerTop != headerTop ? mHeaderContainerTop : offset);
-        mHeaderContainerTop = mHeaderContainer.getTop();
+        mHeaderContainer.offsetTopAndBottom(offset);
 
         if (mListViewBackgroundView != null) {
             offset = mLastScrollPosition - scrollPosition;
-            //if offset didn't change and list view background view top is different than last top position
-            // then we should reset offset to last top position otherwise just use offset
-            int listViewBkgTop = mListViewBackgroundView.getTop();
-            mListViewBackgroundView.offsetTopAndBottom(offset == 0 && mListViewBackgroundTop != listViewBkgTop
-                    ? mListViewBackgroundTop - listViewBkgTop : offset);
-            mListViewBackgroundTop = mListViewBackgroundView.getTop();
+            mListViewBackgroundView.offsetTopAndBottom(offset);
         }
 
         if (mFirstGlobalLayoutPerformed) {

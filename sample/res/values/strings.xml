@@ -17,5 +17,7 @@
     <string name="activity_title_dataset_change">Dataset Change Example</string>
     <string name="choose_city">Choose a city</string>
     <string name="action_change_dataset">Change dataset</string>
+    <string name="activity_title_scrollview_change">ScrollView Change Example</string>
+    <string name="action_change_scrollview">Change ScrollView</string>
 
 </resources>
