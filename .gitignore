@@ -31,11 +31,7 @@ apks
 library/build
 sample/build
 .gradle
-gradlew
-gradlew.bat
-library/gradle
-sample/gradle
 
-# Android Studio
+#Android Studio/Intellij IDEA
 *.iml
 .idea
