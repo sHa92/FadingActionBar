@@ -3,8 +3,6 @@ FadingActionBar (AppCompat version)
 
 A fork of [FadingActionBar][11] that works with the support v7 AppCompat action bar instead of with ActionBarSherlock. Use this if your app need to maintain Android 2.X compatibility.
 
-There is also [native][12] action bar implementation. Use it if your app doesn't need to maintain Android 2.X compatibility.
-
 FadingActionBar
 ==================
 
@@ -119,5 +117,4 @@ License
  [9]: https://github.com/antoniolg
  [10]: https://play.google.com/store/apps/details?id=com.yavorivanov.android.danswithme 
  [11]: https://github.com/ManuelPeinado/FadingActionBar
- [12]: https://github.com/mozarcik/FadingActionBar-Native
 
