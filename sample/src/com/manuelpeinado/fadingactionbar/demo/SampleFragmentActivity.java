@@ -17,10 +17,10 @@ package com.manuelpeinado.fadingactionbar.demo;
 
 import android.os.Bundle;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
 
-public class SampleFragmentActivity extends SherlockFragmentActivity {
+public class SampleFragmentActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class SampleFragmentActivity extends SherlockFragmentActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.activity_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
         return true;
     }
 }

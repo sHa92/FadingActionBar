@@ -21,13 +21,13 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.SherlockListActivity;
-
-public class HomeActivity extends SherlockListActivity {
+public class HomeActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
     private List<ActivityInfo> activitiesInfo = Arrays.asList(
             new ActivityInfo(ScrollViewActivity.class, R.string.activity_title_scrollview),
             new ActivityInfo(ListViewActivity.class, R.string.activity_title_listview),
@@ -41,13 +41,15 @@ public class HomeActivity extends SherlockListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        ListView listView = (ListView) findViewById(R.id.list);
         String[] titles = getActivityTitles();
-        setListAdapter(new ArrayAdapter<String>(
+        listView.setAdapter(new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, android.R.id.text1, titles));
+        listView.setOnItemClickListener(this);
     }
-    
+
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Class<? extends Activity> class_ = activitiesInfo.get(position).activityClass;
         Intent intent = new Intent(this, class_);
         startActivity(intent);

@@ -22,6 +22,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -34,10 +36,6 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.app.SherlockListActivity;
 import com.cyrilmottier.android.translucentactionbar.NotifyingScrollView;
 
 public class FadingActionBarHelper {
@@ -162,14 +160,8 @@ public class FadingActionBarHelper {
     }
 
     protected ActionBar getActionBar(Activity activity) {
-        if (activity instanceof SherlockActivity) {
-            return ((SherlockActivity) activity).getSupportActionBar();
-        }
-        if (activity instanceof SherlockFragmentActivity) {
-            return ((SherlockFragmentActivity) activity).getSupportActionBar();
-        }
-        if (activity instanceof SherlockListActivity) {
-            return ((SherlockListActivity) activity).getSupportActionBar();
+        if (activity instanceof ActionBarActivity) {
+            return ((ActionBarActivity) activity).getSupportActionBar();
         }
         try {
             Method method = activity.getClass().getMethod("getSupportActionBar");
